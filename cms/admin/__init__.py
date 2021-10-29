@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, abort, request, redirect, url_for,
 
 from cms.admin.models import Content, Type, Setting, User, db
 
-app = Blueprint('admin', __name__, url_prefix='/admin',template_folder='templates')
+admin_bp = Blueprint('admin', __name__, url_prefix='/admin', template_folder='templates')
 
 def requested_type(type):
     types = [row.name for row in Type.query.all()]
