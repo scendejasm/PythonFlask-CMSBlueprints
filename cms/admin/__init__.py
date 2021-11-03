@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, abort, request, redirect, url_for, flash
+
 from cms.admin.models import Content, Type, Setting, User, db
 from datetime import datetime 
 
@@ -69,16 +70,7 @@ def edit(id):
         flash(error)   
 
     types = Type.query.all()
-    return render_template(
-        'admin/content_form.html'
-        , types=types
-        , title='Edit'
-        , item_title=content.title
-        , slug=content.slug
-        , type_name=type.name
-        , type_id=content.type_id
-        , body=content.body 
-    )
+    return render_template('admin/content_form.html', types=types, title='Edit', item_title=content.title, slug=content.slug, type_name=type.name, type_id=content.type_id, body=content.body)
 
 @admin_bp.route('/users')
 def users():
