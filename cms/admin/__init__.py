@@ -68,6 +68,7 @@ def edit(id):
 
         flash(error)   
 
+    types = Type.query.all()
     return render_template(
         'admin/content_form.html'
         , types=types
